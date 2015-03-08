@@ -21,18 +21,18 @@
 (= emptyVar)
 
 ;; 引用
-`(1 2 3)
-(quote (1 2 3))
-`myvar
-`'mystring'
+;; `(1 2 3)
+;; (quote (1 2 3))
+;; `myvar
+;; `'mystring'
 
 ;; 没有语法quote
-(+ (^ 2 1) (^ 3 2))
-`(+ (^ 2 1) (^ 3 2))
+;; (+ (^ 2 1) (^ 3 2))
+;; `(+ (^ 2 1) (^ 3 2))
 
 ;; 解引用
-`((* 2 3) (+ 4 5))
-`(,(* 2 3) ,(+ 4 5))
+;; `((* 2 3) (+ 4 5))
+;; `(,(* 2 3) ,(+ 4 5))
 
 ;; 命名函数
 ;; (def <name> [<... params>] [<body>])
@@ -69,4 +69,38 @@
 ;; let 局部代码块 用函数来实现的
 ;; (let [var value [var value ...]] [<body>])
 
+(let health 100
+  (prn health))
 
+(? health)
+
+;; 成对出现
+(let plus 110
+  minus -12
+  (prn (^ plus minus)))
+;; let 被实现成了用自己执行的匿名函数
+
+;; 结构赋值
+;; (= (var0 [... varN]) value)
+(= (smaller bigger) `(3 Infinity))
+
+(= (first ...mid closing) `(4 8 0 3))
+(prn mid closing)
+
+;; 参数扁平
+(= pair `("dog" "lizard"))
+(prn "cat" ...pair)
+
+;; 逻辑操作
+;; (is <name>)
+;; (is <name> <something>)
+;; (is <name> <something> [<other> ...])
+
+;; 真实性检查
+(is true)
+
+;; 检查是否相等
+(is grass "green")
+
+;; 或关系的相等
+(is she "smart" "beautiful" "artistic")
