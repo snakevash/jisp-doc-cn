@@ -104,3 +104,14 @@
 
 ;; 或关系的相等
 (is she "smart" "beautiful" "artistic")
+
+;; Over 循环
+(= animals ("spuirrel": "Eevee" "fox": "Vulpix"))
+(over val key animals (prn key val))
+
+(= cats (pink: "Persian" yellow: "Skitty"))
+(= catnames
+   (over name cats name))
+
+;; 内建宏
+(car x)

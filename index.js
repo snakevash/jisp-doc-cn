@@ -1,5 +1,5 @@
 (function() {
-  var newvar, pi, first, second, third, lastest, shifty, picky, dodgy, x, emptyVar, ringMyBell, smaller, bigger, mid, closing, pair, _ref, _err, _ref0, _i, _ref1, _i0;
+  var newvar, pi, first, second, third, lastest, shifty, picky, dodgy, x, emptyVar, ringMyBell, smaller, bigger, mid, closing, pair, animals, key, val, cats, name, catnames, _ref, _err, _ref0, _i, _ref1, _i0, _ref2, _key, _res, _ref3;
   newvar = "赋值一个字符窜";
   pi = ((2 === 3) ? NaN : Math.PI);
   first = "coffee";
@@ -67,5 +67,26 @@
   console.log.apply(console, [].concat(["cat"]).concat(pair));
   !!true;
   grass === "green";
-  return she === "smart" || she === "beautiful" || she === "artistic";
+  she === "smart" || she === "beautiful" || she === "artistic";
+  animals = {
+    "spuirrel": "Eevee",
+    "fox": "Vulpix"
+  };
+  _ref2 = animals;
+  for (key in _ref2) {
+    val = _ref2[key];
+    console.log(key, val);
+  }
+  cats = {
+    pink: "Persian",
+    yellow: "Skitty"
+  };
+  _res = [];
+  _ref3 = cats;
+  for (_key in _ref3) {
+    name = _ref3[_key];
+    if (typeof name !== 'undefined') _res.push(name);
+  }
+  catnames = _res;
+  return x[0];
 })['call'](this);
