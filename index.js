@@ -1,5 +1,5 @@
 (function() {
-  var newvar, pi, first, second, third, lastest, shifty, picky, dodgy, x, emptyVar, ringMyBell, smaller, bigger, mid, closing, pair, animals, key, val, cats, name, catnames, _ref, _err, _ref0, _i, _ref1, _i0, _ref2, _key, _res, _ref3;
+  var newvar, pi, first, second, third, lastest, shifty, picky, dodgy, x, emptyVar, ringMyBell, smaller, bigger, mid, closing, pair, animals, key, val, cats, name, catnames, calc, beast, _ref, _err, _ref0, _i, _ref1, _i0, _ref2, _key, _res, _ref3;
   newvar = "赋值一个字符窜";
   pi = ((2 === 3) ? NaN : Math.PI);
   first = "coffee";
@@ -88,5 +88,42 @@
     if (typeof name !== 'undefined') _res.push(name);
   }
   catnames = _res;
-  return x[0];
+  x[0];
+  x[0];
+  x["slice"](1);
+  x["slice"](1);
+  x["slice"](0, -1);
+  x["slice"](-1)[0];
+  calc = ["number", Math.PI, "professor"];
+  if (true) console.log("breaking off");
+  !!"universe expanding" ? console.log("flight normal"): alert("catastrophe");
+  if (hunting) {
+    beast = randomBeast();
+    shoot(beast);
+  } else {
+    cook('meat');
+  }
+
+  function truthiness(x) {
+    var _ref4;
+    if (x) {
+      console.log("truthiness");
+      _ref4 = x;
+    } else {
+      console.log("falsy");
+      _ref4 = false;
+    }
+    return _ref4;
+  }
+  truthiness(Infinity);
+  if (hungry) {
+    eat();
+  } else if (thirsty) {
+    drink();
+  } else if (tired) {
+    sleep();
+  } else {
+    write(code);
+  }
+  return;
 })['call'](this);

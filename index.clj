@@ -114,4 +114,70 @@
    (over name cats name))
 
 ;; 内建宏
-(car x)
+(car x) ;; 取第一个
+(head x) ;; 取第一个
+(cdr x) ;; 除去第一个
+(tail x)
+(init x) ;; 除去最后一个
+(last x) ;; 最后一个
+
+;; : hast内建函数
+(= calc `("number" Math.PI "professor"))
+
+;; if 宏
+;; (if <test> <then> [<elif test then> ...] <else>)
+;; (if <test> <then> <else>)
+;; (if <test> <then>)
+
+(if true (prn "breaking off")) ;; if (true) console.log('breaking off')
+(if (is "universe expanding")
+  (prn "flight normal")
+  (alert "catastrophe"))
+;; !!'universe expanding' ? console.log('flight normal'): alert('catastrophe');
+
+(if hunting
+  (do (= beast (randomBeast))
+    (shoot beast))
+  (cook 'meat'))
+;; if (hunting) {
+;;  beast = randomBeast();
+;;  shoot(beast);
+;;} else {
+;;  cook('meat');
+;;}
+
+((def truthiness x
+   (if x
+     (do (prn "truthiness") x)
+     (do (prn "falsy") false)))
+ Infinity)
+
+;; function truthiness(x) {
+;;   var _ref;
+;;   if (x) {
+;;     console.log('truthy');
+;;     _ref = x;
+;;   } else {
+;;     console.log('falsy');
+;;     _ref = false;
+;;   }
+;;   return _ref;
+;; }
+;; truthiness(Infinity);
+
+;; else-if 的特殊form形式 (elif <test> <branch>)
+(if hungry
+  (eat)
+  (elif thirsty (drink))
+  (elif tired (sleep))
+  (write code))
+
+;; if (hungry) {
+;;   eat();
+;; } else if (thirsty) {
+;;   drink();
+;; } else if (tired) {
+;;   sleep();
+;; } else {
+;;   write(code);
+;; }
