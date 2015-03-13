@@ -1,5 +1,4 @@
 (function() {
-  return exports.add = (function(x, y) {
-    return (x + y);
-  });
+  console.log("翻译:", "snake");
+  return console.log("希望大家喜欢");
 })['call'](this);
