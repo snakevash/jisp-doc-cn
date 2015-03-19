@@ -1,183 +1,21 @@
-;; 赋值语句
-;; (= var value [... var value])
-;; (= var)
+;; 个人认为 jisp 比 clojurescript 轻量
+;; 也就更能发挥 lisp 在小型项目上的作用
+;; 少了clojurescript默认包含的google框架
+;; 一切就显得很舒服
 
-(= newvar "赋值一个字符窜")
-(= pi (if (is 2 3)
-        NaN
-        Math.PI))
+;; 它可以写 nodejs 和 前端js
+;; 个人的工作环境是这样子的
+;; 用Light Table来写jisp
+;; 然后用 webstorm 来做即时的转换
 
-;; 赋值可以多条件
-(= lastest (= first "coffee"
-              second "Beer"
-              third "Milk"))
+;; 上线可以用 grunt 或者 gulp 或者 npm script 来进行工作流处理
 
-;; 赋值语句可以正确处理代码块
-(= x (= shifty null
-        picky (if false "nose up" "smile")
-        dodgy (try (+ something) "unsuccessful")))
+;; 其实 jisp写npm模块更好 这样子就不用和原生的js混合
 
-;; 单个=就是定义
-(= emptyVar)
 
-;; 引用
-;; `(1 2 3)
-;; (quote (1 2 3))
-;; `myvar
-;; `'mystring'
+;; jisp有几个需要改进的地方
+;; 首先它产生的js代码质量还需加强 不过clojurescript也差不多 反正没有coffeescript好
+;; 其次 调试jisp 个人是用chrome dev来调试前端 然后用 webstorm 来调试后端
+;; 调试的时候 还是需要对js有深入的了解 因为产生的js代码语法是比较啰嗦和奇怪的
 
-;; 没有语法quote
-;; (+ (^ 2 1) (^ 3 2))
-;; `(+ (^ 2 1) (^ 3 2))
-
-;; 解引用
-;; `((* 2 3) (+ 4 5))
-;; `(,(* 2 3) ,(+ 4 5))
-
-;; 命名函数
-;; (def <name> [<... params>] [<body>])
-(def fact x
-  (if (is x 0)
-    1
-    (* x (fact (- x 1)))))
-
-;; 匿名函数
-;; (fn [<... params>] [<body>])
-(fn first second
-  (+ first second))
-
-;; 调用和返回
-(= ringMyBell (fn bell
-                (prn bell)))
-(ringMyBell "\x07")
-((fn x (+ "hello " x)) "World!")
-
-;; 函数返回值
-(def numerify x
-  (if (isNaN (Number x))
-    (do (prn "not a number:" x)
-      NaN)
-    (Number x)))
-
-;; #(NYI) 调用arguments
-((fn (* #0 #2)) 3 100 4 2)
-
-;; {<body>}
-{alert "It's a dragon!"}
-{}
-
-;; let 局部代码块 用函数来实现的
-;; (let [var value [var value ...]] [<body>])
-
-(let health 100
-  (prn health))
-
-(? health)
-
-;; 成对出现
-(let plus 110
-  minus -12
-  (prn (^ plus minus)))
-;; let 被实现成了用自己执行的匿名函数
-
-;; 结构赋值
-;; (= (var0 [... varN]) value)
-(= (smaller bigger) `(3 Infinity))
-
-(= (first ...mid closing) `(4 8 0 3))
-(prn mid closing)
-
-;; 参数扁平
-(= pair `("dog" "lizard"))
-(prn "cat" ...pair)
-
-;; 逻辑操作
-;; (is <name>)
-;; (is <name> <something>)
-;; (is <name> <something> [<other> ...])
-
-;; 真实性检查
-(is true)
-
-;; 检查是否相等
-(is grass "green")
-
-;; 或关系的相等
-(is she "smart" "beautiful" "artistic")
-
-;; Over 循环
-(= animals ("spuirrel": "Eevee" "fox": "Vulpix"))
-(over val key animals (prn key val))
-
-(= cats (pink: "Persian" yellow: "Skitty"))
-(= catnames
-   (over name cats name))
-
-;; 内建宏
-(car x) ;; 取第一个
-(head x) ;; 取第一个
-(cdr x) ;; 除去第一个
-(tail x)
-(init x) ;; 除去最后一个
-(last x) ;; 最后一个
-
-;; : hast内建函数
-(= calc `("number" Math.PI "professor"))
-
-;; if 宏
-;; (if <test> <then> [<elif test then> ...] <else>)
-;; (if <test> <then> <else>)
-;; (if <test> <then>)
-
-(if true (prn "breaking off")) ;; if (true) console.log('breaking off')
-(if (is "universe expanding")
-  (prn "flight normal")
-  (alert "catastrophe"))
-;; !!'universe expanding' ? console.log('flight normal'): alert('catastrophe');
-
-(if hunting
-  (do (= beast (randomBeast))
-    (shoot beast))
-  (cook 'meat'))
-;; if (hunting) {
-;;  beast = randomBeast();
-;;  shoot(beast);
-;;} else {
-;;  cook('meat');
-;;}
-
-((def truthiness x
-   (if x
-     (do (prn "truthiness") x)
-     (do (prn "falsy") false)))
- Infinity)
-
-;; function truthiness(x) {
-;;   var _ref;
-;;   if (x) {
-;;     console.log('truthy');
-;;     _ref = x;
-;;   } else {
-;;     console.log('falsy');
-;;     _ref = false;
-;;   }
-;;   return _ref;
-;; }
-;; truthiness(Infinity);
-
-;; else-if 的特殊form形式 (elif <test> <branch>)
-(if hungry
-  (eat)
-  (elif thirsty (drink))
-  (elif tired (sleep))
-  (write code))
-
-;; if (hungry) {
-;;   eat();
-;; } else if (thirsty) {
-;;   drink();
-;; } else if (tired) {
-;;   sleep();
-;; } else {
-;;   write(code);
-;; }
+(+ "Hello Snake!" "Hello jisp!")
